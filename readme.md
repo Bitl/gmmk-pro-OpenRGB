@@ -7,7 +7,6 @@
 1) You can use the firmware with OpenRGB support to customize colors for each key individually. However, in this case, the lighting settings are stored in the computer's memory. You will need to save the profile file and transfer it to a new device every time. Despite this, the lighting configuration process is straightforward. Another significant advantage is the concise configuration provided by the user.
 
 2) Alternatively, you can manually set all the colors for each key in `keymap.c`.
-+ VIA support is available.
 + Lighting works without third-party programs running in the background.
 
 - Setting up the colors is more complicated.
@@ -26,7 +25,13 @@
 
 ## QMK Firmware Compilation
 
-To compile the firmware using the standard `qmk_firmware`, place the folder **`qmmk_pro_VIA`** in:
+Follow the "Compilation of Firmware for OpenRGB not Possible from Standard qmk_firmware" below, then test your install with:
+
+```plaintext
+qmk compile -kb gmmk/pro/rev1/ansi -km default
+```
+
+Then, place the folder **`qmmk_pro_OpenRGB`** in:
 
 ```plaintext
 C:\Users\username\qmk_firmware\keyboards\gmmk\pro\rev1\ansi\keymaps\
@@ -108,24 +113,31 @@ If the links are unavailable:
 
 Pre-compiled firmware gmmk pro ANSI ver.1:
 
-- [QMMK Open RGB](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/gmmk_pro_rev1_ansi_qmmk_pro_OpenRGB_4ms.bin) - (add OpenRGB support on Trwnh keyboard layout)
-- [QMMK VIA](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/gmmk_pro_rev1_ansi_qmmk_pro_VIA_4ms.bin)
+- [QMMK Open RGB](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/gmmk_pro_rev1_ansi_qmmk_pro_OpenRGB_4ms.bin)
 
-## Layers
+## Layers (outdated)
 
-Source code for keyboard layout editor images can be found [here](https://gist.github.com/trwnh/94e48f132c49043373918df29409ab48).
+Layers are set to the default QMK layouts.
 
-### Layer 0
+```
+    [0] = LAYOUT(
+        KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR,          KC_MUTE,
+        KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_DEL,
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PGUP,
+        KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,           KC_PGDN,
+        KC_LSFT,          KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, KC_UP,   KC_END,
+        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, MO(1),   KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT
+    ),
 
-![Layer 0](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/img/layer0.png)
-
-### Layer 1
-
-![Layer 1](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/img/layer1.png)
-
-### Layer 2
-
-![Layer 2](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/img/layer2.png)
+    [1] = LAYOUT(
+        _______, KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_MUTE, KC_VOLD, KC_VOLU, _______, _______,          _______,
+        _______, RGB_TOG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+        _______, _______, RGB_VAI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT,            _______,
+        _______, _______, RGB_VAD, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,          _______,
+        _______,          _______, RGB_HUI, _______, _______, _______, NK_TOGG, _______, _______, _______, _______,          _______, RGB_MOD, _______,
+        _______, _______, _______,                            _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
+    ),
+```
 
 ## Miscellaneous
 
@@ -137,5 +149,6 @@ Special thanks to:
 
 
 Changelog: 
+[FORK] 26.10.2025 forked, caps lock indicator changes, reset to default layers
 16.08.2024 incraise 2ms polling interval ms 2 / some typing errors on 1ms / .bin updated + tested
 23.08.2024 QMMK_PRO_VIA Changed DEBOUNCE_TYPE to sym_defer_g: Updated debounce algorithm for improved resistance to key bounce, reducing the likelihood of accidental double key presses. Increased USB_POLLING_INTERVAL_MS to 4 ms: Adjusted USB polling interval to decrease the chance of key bounce being registered, optimizing overall stability of key inputs. /.bin updates + tested
