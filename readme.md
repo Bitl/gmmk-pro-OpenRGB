@@ -1,4 +1,5 @@
 # "qmmk_pro" - custom QMK firmware for Glorious GMMK Pro rev.1 
+# Note: ONLY WORKS with OpenRGB 0.9. WILL NOT WORK WITH 1.0.
 
 ![qmmk_pro VIA preview](files/img/photo_2024-08-09_10-50-21.jpg)
 
@@ -113,9 +114,9 @@ If the links are unavailable:
 
 Pre-compiled firmware gmmk pro ANSI ver.1:
 
-- [QMMK Open RGB](https://github.com/GoXLd/gmmk-pro-OpenRGB/blob/main/files/gmmk_pro_rev1_ansi_qmmk_pro_OpenRGB_4ms.bin)
+- [QMMK Open RGB](https://github.com/Bitl/gmmk-pro-OpenRGB/raw/refs/heads/main/files/gmmk_pro_rev1_ansi_qmmk_pro_OpenRGB.bin)
 
-## Layers (outdated)
+## Layers
 
 Layers are set to the default QMK layouts.
 
