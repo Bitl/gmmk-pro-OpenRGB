@@ -70,8 +70,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 	static void set_rgb_caps_leds_on() 
 	{
 		// Set sides and capslock to red
-
 		rgb_matrix_set_color( 3, 255, 255, 255);	// Caps
+		
+		// arrow keys
+		rgb_matrix_set_color( 94, 255, 255, 255);	// Up
+		rgb_matrix_set_color( 97, 255, 255, 255);	// Down
+		rgb_matrix_set_color( 95, 255, 255, 255);	// Left
+		rgb_matrix_set_color( 79, 255, 255, 255);	// Right
 
 		// Left side rainbow
 		rgb_matrix_set_color(67, 255, 255, 255);	// Left LED 01
@@ -97,8 +102,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 	static void set_rgb_caps_leds_off() 
 	{
 		// Set sides and capslock to black
-
 		rgb_matrix_set_color( 3, 0, 0, 0);	// Caps
+		
+		// arrow keys
+		rgb_matrix_set_color( 94, 0,   0,   0);	// Up
+		rgb_matrix_set_color( 97, 0,   0,   0);	// Down
+		rgb_matrix_set_color( 95, 0,   0,   0);	// Left
+		rgb_matrix_set_color( 79, 0,   0,   0);	// Right
 
 		// Left side rainbow
 		rgb_matrix_set_color(67, 0,   0,   0);	// Left LED 01
